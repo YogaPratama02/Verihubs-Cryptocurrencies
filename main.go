@@ -16,10 +16,6 @@ func main() {
 		log.Fatalf("Error read env file with err: %s", err)
 	}
 
-	// if err := database.ConnectDB(); err != nil {
-	// 	log.Fatalf("Can't connect to database with err: %s", err)
-	// }
-
 	db := database.ConnectDB()
 
 	router := router.NewRoutes(db)
