@@ -1,0 +1,643 @@
+{
+	"info": {
+		"_postman_id": "ad7368d9-3930-44ad-82aa-1ac3324a1d03",
+		"name": "Verihubs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11303496"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_name\": \"Bima\",\n    \"email\": \"bima@gmail.com\",\n    \"password\": \"bima123\",\n    \"password_confirmation\": \"bima123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_name\": \"Yoga\",\n    \"email\": \"yoga@gmail.com\",\n    \"password\": \"yoga345\",\n    \"password_confirmation\": \"yoga345\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/register",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 Apr 2024 15:27:08 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "110"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Successfully register\",\n    \"data\": {\n        \"id\": 1,\n        \"user_name\": \"Yoga\",\n        \"email\": \"yoga@gmail.com\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseJson = pm.response.json();",
+									"",
+									"console.log(pm.response)",
+									"pm.environment.set(\"token\", responseJson.data.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"bima@gmail.com\",\n    \"password\": \"bima123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"yoga@gmail.com\",\n    \"password\": \"yoga345\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 Apr 2024 15:56:16 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "181"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Succesfully login\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTM5NzQxNzYsImlkIjoxfQ.7PexAk5oaF-H3RJKRzRg3_mF_OUvsO8sMEvvLFzA7NU\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Coin Market",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/coin-market",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"coin-market"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Coin Market",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/user/coin-market",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"coin-market"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Apr 2024 16:09:48 GMT"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Succesfully get list coin market\",\n    \"data\": [\n        {\n            \"id\": \"bitcoin\",\n            \"name\": \"Bitcoin\",\n            \"max_supply\": \"21000000.0000000000000000\",\n            \"market_cap_usd\": \"1276042925545.6984262478259500\",\n            \"price\": \"Rp 1.051.286.249\",\n            \"rank\": \"1\",\n            \"symbol\": \"BTC\"\n        },\n        {\n            \"id\": \"ethereum\",\n            \"name\": \"Ethereum\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"382435304396.7501619855097922\",\n            \"price\": \"Rp 51.656.387\",\n            \"rank\": \"2\",\n            \"symbol\": \"ETH\"\n        },\n        {\n            \"id\": \"tether\",\n            \"name\": \"Tether\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"109016898906.4690694031694253\",\n            \"price\": \"Rp 16.216\",\n            \"rank\": \"3\",\n            \"symbol\": \"USDT\"\n        },\n        {\n            \"id\": \"binance-coin\",\n            \"name\": \"BNB\",\n            \"max_supply\": \"166801148.0000000000000000\",\n            \"market_cap_usd\": \"100007195428.2907340071012832\",\n            \"price\": \"Rp 9.723.898\",\n            \"rank\": \"4\",\n            \"symbol\": \"BNB\"\n        },\n        {\n            \"id\": \"solana\",\n            \"name\": \"Solana\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"68061248714.5912982801034093\",\n            \"price\": \"Rp 2.471.095\",\n            \"rank\": \"5\",\n            \"symbol\": \"SOL\"\n        },\n        {\n            \"id\": \"usd-coin\",\n            \"name\": \"USDC\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"32627490852.2924873268126216\",\n            \"price\": \"Rp 16.222\",\n            \"rank\": \"6\",\n            \"symbol\": \"USDC\"\n        },\n        {\n            \"id\": \"xrp\",\n            \"name\": \"XRP\",\n            \"max_supply\": \"100000000000.0000000000000000\",\n            \"market_cap_usd\": \"23983088942.9978060689211040\",\n            \"price\": \"Rp 8.566\",\n            \"rank\": \"7\",\n            \"symbol\": \"XRP\"\n        },\n        {\n            \"id\": \"dogecoin\",\n            \"name\": \"Dogecoin\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"22082203855.2271456479414530\",\n            \"price\": \"Rp 2.488\",\n            \"rank\": \"8\",\n            \"symbol\": \"DOGE\"\n        },\n        {\n            \"id\": \"cardano\",\n            \"name\": \"Cardano\",\n            \"max_supply\": \"45000000000.0000000000000000\",\n            \"market_cap_usd\": \"17019341637.6698995018026765\",\n            \"price\": \"Rp 7.749\",\n            \"rank\": \"9\",\n            \"symbol\": \"ADA\"\n        },\n        {\n            \"id\": \"shiba-inu\",\n            \"name\": \"Shiba Inu\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"15237174014.0818982325810520\",\n            \"price\": \"Rp 0\",\n            \"rank\": \"10\",\n            \"symbol\": \"SHIB\"\n        },\n        {\n            \"id\": \"avalanche\",\n            \"name\": \"Avalanche\",\n            \"max_supply\": \"715748719.0000000000000000\",\n            \"market_cap_usd\": \"13961745338.2989790856619209\",\n            \"price\": \"Rp 599.069\",\n            \"rank\": \"11\",\n            \"symbol\": \"AVAX\"\n        },\n        {\n            \"id\": \"wrapped-bitcoin\",\n            \"name\": \"Wrapped Bitcoin\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"10074541608.9160643389811949\",\n            \"price\": \"Rp 1.051.545.224\",\n            \"rank\": \"12\",\n            \"symbol\": \"WBTC\"\n        },\n        {\n            \"id\": \"tron\",\n            \"name\": \"TRON\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"9920147397.0422498862857137\",\n            \"price\": \"Rp 1.836\",\n            \"rank\": \"13\",\n            \"symbol\": \"TRX\"\n        },\n        {\n            \"id\": \"polkadot\",\n            \"name\": \"Polkadot\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"9567562146.7709757917051622\",\n            \"price\": \"Rp 114.403\",\n            \"rank\": \"14\",\n            \"symbol\": \"DOT\"\n        },\n        {\n            \"id\": \"bitcoin-cash\",\n            \"name\": \"Bitcoin Cash\",\n            \"max_supply\": \"21000000.0000000000000000\",\n            \"market_cap_usd\": \"9500223494.5547661066209656\",\n            \"price\": \"Rp 7.824.079\",\n            \"rank\": \"15\",\n            \"symbol\": \"BCH\"\n        },\n        {\n            \"id\": \"chainlink\",\n            \"name\": \"Chainlink\",\n            \"max_supply\": \"1000000000.0000000000000000\",\n            \"market_cap_usd\": \"8672726727.8651462251438214\",\n            \"price\": \"Rp 239.580\",\n            \"rank\": \"16\",\n            \"symbol\": \"LINK\"\n        },\n        {\n            \"id\": \"near-protocol\",\n            \"name\": \"NEAR Protocol\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"7464426271.9045808826586380\",\n            \"price\": \"Rp 113.526\",\n            \"rank\": \"17\",\n            \"symbol\": \"NEAR\"\n        },\n        {\n            \"id\": \"polygon\",\n            \"name\": \"Polygon\",\n            \"max_supply\": \"10000000000.0000000000000000\",\n            \"market_cap_usd\": \"7097150524.2749951021737149\",\n            \"price\": \"Rp 11.632\",\n            \"rank\": \"18\",\n            \"symbol\": \"MATIC\"\n        },\n        {\n            \"id\": \"internet-computer\",\n            \"name\": \"Internet Computer\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"6443245929.8402487028296244\",\n            \"price\": \"Rp 225.834\",\n            \"rank\": \"19\",\n            \"symbol\": \"ICP\"\n        },\n        {\n            \"id\": \"litecoin\",\n            \"name\": \"Litecoin\",\n            \"max_supply\": \"84000000.0000000000000000\",\n            \"market_cap_usd\": \"6326903803.6025758554339787\",\n            \"price\": \"Rp 1.378.556\",\n            \"rank\": \"20\",\n            \"symbol\": \"LTC\"\n        },\n        {\n            \"id\": \"multi-collateral-dai\",\n            \"name\": \"Multi Collateral DAI\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"5344927606.1438345202945458\",\n            \"price\": \"Rp 16.209\",\n            \"rank\": \"21\",\n            \"symbol\": \"DAI\"\n        },\n        {\n            \"id\": \"uniswap\",\n            \"name\": \"Uniswap\",\n            \"max_supply\": \"1000000000.0000000000000000\",\n            \"market_cap_usd\": \"4653145059.1883272163054819\",\n            \"price\": \"Rp 126.043\",\n            \"rank\": \"22\",\n            \"symbol\": \"UNI\"\n        },\n        {\n            \"id\": \"stacks\",\n            \"name\": \"Stacks\",\n            \"max_supply\": \"1818000000.0000000000000000\",\n            \"market_cap_usd\": \"3967872204.7085318201401150\",\n            \"price\": \"Rp 44.283\",\n            \"rank\": \"23\",\n            \"symbol\": \"STX\"\n        },\n        {\n            \"id\": \"ethereum-classic\",\n            \"name\": \"Ethereum Classic\",\n            \"max_supply\": \"210700000.0000000000000000\",\n            \"market_cap_usd\": \"3953037178.7101574920599541\",\n            \"price\": \"Rp 437.303\",\n            \"rank\": \"24\",\n            \"symbol\": \"ETC\"\n        },\n        {\n            \"id\": \"stellar\",\n            \"name\": \"Stellar\",\n            \"max_supply\": \"50001806812.0000000000000000\",\n            \"market_cap_usd\": \"3350410621.3899991319208196\",\n            \"price\": \"Rp 1.880\",\n            \"rank\": \"25\",\n            \"symbol\": \"XLM\"\n        },\n        {\n            \"id\": \"filecoin\",\n            \"name\": \"Filecoin\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"3313817129.4518380342960512\",\n            \"price\": \"Rp 99.608\",\n            \"rank\": \"26\",\n            \"symbol\": \"FIL\"\n        },\n        {\n            \"id\": \"okb\",\n            \"name\": \"OKB\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"3263739710.4549649440000000\",\n            \"price\": \"Rp 882.211\",\n            \"rank\": \"27\",\n            \"symbol\": \"OKB\"\n        },\n        {\n            \"id\": \"render-token\",\n            \"name\": \"Render Token\",\n            \"max_supply\": \"536870912.0000000000000000\",\n            \"market_cap_usd\": \"3212869308.4986192019896169\",\n            \"price\": \"Rp 140.978\",\n            \"rank\": \"28\",\n            \"symbol\": \"RNDR\"\n        },\n        {\n            \"id\": \"crypto-com-coin\",\n            \"name\": \"Crypto.com Coin\",\n            \"max_supply\": \"30263013692.0000000000000000\",\n            \"market_cap_usd\": \"3179300261.8501767854574720\",\n            \"price\": \"Rp 2.041\",\n            \"rank\": \"29\",\n            \"symbol\": \"CRO\"\n        },\n        {\n            \"id\": \"vechain\",\n            \"name\": \"VeChain\",\n            \"max_supply\": \"86712634466.0000000000000000\",\n            \"market_cap_usd\": \"2938133831.2972855074960774\",\n            \"price\": \"Rp 655\",\n            \"rank\": \"30\",\n            \"symbol\": \"VET\"\n        },\n        {\n            \"id\": \"maker\",\n            \"name\": \"Maker\",\n            \"max_supply\": \"1005577.0000000000000000\",\n            \"market_cap_usd\": \"2676515424.1836996830594069\",\n            \"price\": \"Rp 46.942.801\",\n            \"rank\": \"31\",\n            \"symbol\": \"MKR\"\n        },\n        {\n            \"id\": \"the-graph\",\n            \"name\": \"The Graph\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"2622726423.6445406270737719\",\n            \"price\": \"Rp 4.485\",\n            \"rank\": \"32\",\n            \"symbol\": \"GRT\"\n        },\n        {\n            \"id\": \"theta\",\n            \"name\": \"THETA\",\n            \"max_supply\": \"1000000000.0000000000000000\",\n            \"market_cap_usd\": \"2399109191.5620145000000000\",\n            \"price\": \"Rp 38.909\",\n            \"rank\": \"33\",\n            \"symbol\": \"THETA\"\n        },\n        {\n            \"id\": \"monero\",\n            \"name\": \"Monero\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"2222201491.4524543087007988\",\n            \"price\": \"Rp 1.956.061\",\n            \"rank\": \"34\",\n            \"symbol\": \"XMR\"\n        },\n        {\n            \"id\": \"arweave\",\n            \"name\": \"Arweave\",\n            \"max_supply\": \"66000000.0000000000000000\",\n            \"market_cap_usd\": \"2121275861.3246134204928345\",\n            \"price\": \"Rp 525.615\",\n            \"rank\": \"35\",\n            \"symbol\": \"AR\"\n        },\n        {\n            \"id\": \"cosmos\",\n            \"name\": \"Cosmos\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"2116294009.2463769027917357\",\n            \"price\": \"Rp 138.146\",\n            \"rank\": \"36\",\n            \"symbol\": \"ATOM\"\n        },\n        {\n            \"id\": \"fetch\",\n            \"name\": \"Fetch.ai\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"2070601468.8820228289834805\",\n            \"price\": \"Rp 39.578\",\n            \"rank\": \"37\",\n            \"symbol\": \"FET\"\n        },\n        {\n            \"id\": \"fantom\",\n            \"name\": \"Fantom\",\n            \"max_supply\": \"3175000000.0000000000000000\",\n            \"market_cap_usd\": \"2065925920.1991279834362801\",\n            \"price\": \"Rp 11.950\",\n            \"rank\": \"38\",\n            \"symbol\": \"FTM\"\n        },\n        {\n            \"id\": \"injective-protocol\",\n            \"name\": \"Injective\",\n            \"max_supply\": \"100000000.0000000000000000\",\n            \"market_cap_usd\": \"2003180943.2791033785520880\",\n            \"price\": \"Rp 445.012\",\n            \"rank\": \"39\",\n            \"symbol\": \"INJ\"\n        },\n        {\n            \"id\": \"hedera-hashgraph\",\n            \"name\": \"Hedera Hashgraph\",\n            \"max_supply\": \"50000000000.0000000000000000\",\n            \"market_cap_usd\": \"1891420983.2908324116506752\",\n            \"price\": \"Rp 2.068\",\n            \"rank\": \"40\",\n            \"symbol\": \"HBAR\"\n        },\n        {\n            \"id\": \"thorchain\",\n            \"name\": \"THORChain\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"1863972817.0908268781698887\",\n            \"price\": \"Rp 90.376\",\n            \"rank\": \"41\",\n            \"symbol\": \"RUNE\"\n        },\n        {\n            \"id\": \"lido-dao\",\n            \"name\": \"Lido DAO\",\n            \"max_supply\": \"1000000000.0000000000000000\",\n            \"market_cap_usd\": \"1840781992.7314131959080965\",\n            \"price\": \"Rp 33.479\",\n            \"rank\": \"42\",\n            \"symbol\": \"LDO\"\n        },\n        {\n            \"id\": \"algorand\",\n            \"name\": \"Algorand\",\n            \"max_supply\": \"10000000000.0000000000000000\",\n            \"market_cap_usd\": \"1757169523.8485042529719157\",\n            \"price\": \"Rp 3.505\",\n            \"rank\": \"43\",\n            \"symbol\": \"ALGO\"\n        },\n        {\n            \"id\": \"pendle\",\n            \"name\": \"Pendle\",\n            \"max_supply\": \"258446029.0000000000000000\",\n            \"market_cap_usd\": \"1484449946.4051378542061803\",\n            \"price\": \"Rp 100.655\",\n            \"rank\": \"44\",\n            \"symbol\": \"PENDLE\"\n        },\n        {\n            \"id\": \"gala\",\n            \"name\": \"Gala\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"1482271524.3159995522648566\",\n            \"price\": \"Rp 784\",\n            \"rank\": \"45\",\n            \"symbol\": \"GALA\"\n        },\n        {\n            \"id\": \"flow\",\n            \"name\": \"Flow\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"1442823928.9242225060082416\",\n            \"price\": \"Rp 15.580\",\n            \"rank\": \"46\",\n            \"symbol\": \"FLOW\"\n        },\n        {\n            \"id\": \"aave\",\n            \"name\": \"Aave\",\n            \"max_supply\": \"16000000.0000000000000000\",\n            \"market_cap_usd\": \"1370672937.4339248939225302\",\n            \"price\": \"Rp 1.501.694\",\n            \"rank\": \"47\",\n            \"symbol\": \"AAVE\"\n        },\n        {\n            \"id\": \"bitcoin-sv\",\n            \"name\": \"Bitcoin SV\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"1363549368.1046159749979400\",\n            \"price\": \"Rp 1.123.172\",\n            \"rank\": \"48\",\n            \"symbol\": \"BSV\"\n        },\n        {\n            \"id\": \"quant\",\n            \"name\": \"Quant\",\n            \"max_supply\": \"14881364.0000000000000000\",\n            \"market_cap_usd\": \"1310379480.1917945002625972\",\n            \"price\": \"Rp 1.760.352\",\n            \"rank\": \"49\",\n            \"symbol\": \"QNT\"\n        },\n        {\n            \"id\": \"singularitynet\",\n            \"name\": \"SingularityNET\",\n            \"max_supply\": \"2000000000.0000000000000000\",\n            \"market_cap_usd\": \"1289348137.8679129455713247\",\n            \"price\": \"Rp 16.310\",\n            \"rank\": \"50\",\n            \"symbol\": \"AGIX\"\n        },\n        {\n            \"id\": \"neo\",\n            \"name\": \"Neo\",\n            \"max_supply\": \"100000000.0000000000000000\",\n            \"market_cap_usd\": \"1272645820.8463240670184415\",\n            \"price\": \"Rp 292.608\",\n            \"rank\": \"51\",\n            \"symbol\": \"NEO\"\n        },\n        {\n            \"id\": \"akash-network\",\n            \"name\": \"Akash Network\",\n            \"max_supply\": \"388539008.0000000000000000\",\n            \"market_cap_usd\": \"1155615621.0118341926679388\",\n            \"price\": \"Rp 80.137\",\n            \"rank\": \"52\",\n            \"symbol\": \"AKT\"\n        },\n        {\n            \"id\": \"axie-infinity\",\n            \"name\": \"Axie Infinity\",\n            \"max_supply\": \"270000000.0000000000000000\",\n            \"market_cap_usd\": \"1108535315.9112736889248182\",\n            \"price\": \"Rp 125.480\",\n            \"rank\": \"53\",\n            \"symbol\": \"AXS\"\n        },\n        {\n            \"id\": \"chiliz\",\n            \"name\": \"Chiliz\",\n            \"max_supply\": \"8888888888.0000000000000000\",\n            \"market_cap_usd\": \"1086007982.8708826375180145\",\n            \"price\": \"Rp 1.981\",\n            \"rank\": \"54\",\n            \"symbol\": \"CHZ\"\n        },\n        {\n            \"id\": \"the-sandbox\",\n            \"name\": \"The Sandbox\",\n            \"max_supply\": \"3000000000.0000000000000000\",\n            \"market_cap_usd\": \"1068193874.2379880171785887\",\n            \"price\": \"Rp 7.693\",\n            \"rank\": \"55\",\n            \"symbol\": \"SAND\"\n        },\n        {\n            \"id\": \"ecash\",\n            \"name\": \"eCash\",\n            \"max_supply\": \"21000000000000.0000000000000000\",\n            \"market_cap_usd\": \"1033129818.8947378447593656\",\n            \"price\": \"Rp 0\",\n            \"rank\": \"56\",\n            \"symbol\": \"XEC\"\n        },\n        {\n            \"id\": \"elrond-egld\",\n            \"name\": \"MultiversX\",\n            \"max_supply\": \"31415926.0000000000000000\",\n            \"market_cap_usd\": \"1031243377.0042160577440161\",\n            \"price\": \"Rp 691.562\",\n            \"rank\": \"57\",\n            \"symbol\": \"EGLD\"\n        },\n        {\n            \"id\": \"tezos\",\n            \"name\": \"Tezos\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"996687788.2770645885508651\",\n            \"price\": \"Rp 16.518\",\n            \"rank\": \"58\",\n            \"symbol\": \"XTZ\"\n        },\n        {\n            \"id\": \"conflux-network\",\n            \"name\": \"Conflux\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"982144049.4304330042264471\",\n            \"price\": \"Rp 4.041\",\n            \"rank\": \"59\",\n            \"symbol\": \"CFX\"\n        },\n        {\n            \"id\": \"mina\",\n            \"name\": \"Mina\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"970122391.5633699084734849\",\n            \"price\": \"Rp 14.458\",\n            \"rank\": \"60\",\n            \"symbol\": \"MINA\"\n        },\n        {\n            \"id\": \"kucoin-token\",\n            \"name\": \"KuCoin Token\",\n            \"max_supply\": \"170118638.0000000000000000\",\n            \"market_cap_usd\": \"956581082.0334901138263641\",\n            \"price\": \"Rp 161.383\",\n            \"rank\": \"61\",\n            \"symbol\": \"KCS\"\n        },\n        {\n            \"id\": \"eos\",\n            \"name\": \"EOS\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"941433653.8025905561286473\",\n            \"price\": \"Rp 13.592\",\n            \"rank\": \"62\",\n            \"symbol\": \"EOS\"\n        },\n        {\n            \"id\": \"gnosis-gno\",\n            \"name\": \"Gnosis\",\n            \"max_supply\": \"3000000.0000000000000000\",\n            \"market_cap_usd\": \"905698965.0553419341529000\",\n            \"price\": \"Rp 5.672.329\",\n            \"rank\": \"63\",\n            \"symbol\": \"GNO\"\n        },\n        {\n            \"id\": \"decentraland\",\n            \"name\": \"Decentraland\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"899659236.2960855213417253\",\n            \"price\": \"Rp 7.646\",\n            \"rank\": \"64\",\n            \"symbol\": \"MANA\"\n        },\n        {\n            \"id\": \"nervos-network\",\n            \"name\": \"Nervos Network\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"856356431.2462726309902050\",\n            \"price\": \"Rp 315\",\n            \"rank\": \"65\",\n            \"symbol\": \"CKB\"\n        },\n        {\n            \"id\": \"kava\",\n            \"name\": \"Kava\",\n            \"max_supply\": \"1082860679.0000000000000000\",\n            \"market_cap_usd\": \"816319778.9672923193644227\",\n            \"price\": \"Rp 12.226\",\n            \"rank\": \"66\",\n            \"symbol\": \"KAVA\"\n        },\n        {\n            \"id\": \"iota\",\n            \"name\": \"IOTA\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"787877892.6289252571241807\",\n            \"price\": \"Rp 3.956\",\n            \"rank\": \"67\",\n            \"symbol\": \"IOTA\"\n        },\n        {\n            \"id\": \"aioz-network\",\n            \"name\": \"AIOZ Network\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"754416860.5653718367200938\",\n            \"price\": \"Rp 11.252\",\n            \"rank\": \"68\",\n            \"symbol\": \"AIOZ\"\n        },\n        {\n            \"id\": \"theta-fuel\",\n            \"name\": \"Theta Fuel\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"734060809.8605406616844688\",\n            \"price\": \"Rp 1.826\",\n            \"rank\": \"69\",\n            \"symbol\": \"TFUEL\"\n        },\n        {\n            \"id\": \"klaytn\",\n            \"name\": \"Klaytn\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"729912246.8323503202451357\",\n            \"price\": \"Rp 3.266\",\n            \"rank\": \"70\",\n            \"symbol\": \"KLAY\"\n        },\n        {\n            \"id\": \"pancakeswap\",\n            \"name\": \"PancakeSwap\",\n            \"max_supply\": \"450000000.0000000000000000\",\n            \"market_cap_usd\": \"729776496.6323996693295989\",\n            \"price\": \"Rp 47.538\",\n            \"rank\": \"71\",\n            \"symbol\": \"CAKE\"\n        },\n        {\n            \"id\": \"gatetoken\",\n            \"name\": \"GateToken\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"715140220.5791699322236549\",\n            \"price\": \"Rp 120.229\",\n            \"rank\": \"72\",\n            \"symbol\": \"GT\"\n        },\n        {\n            \"id\": \"nexo\",\n            \"name\": \"Nexo\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"709264219.6828863501071780\",\n            \"price\": \"Rp 20.541\",\n            \"rank\": \"73\",\n            \"symbol\": \"NEXO\"\n        },\n        {\n            \"id\": \"oasis-network\",\n            \"name\": \"Oasis Network\",\n            \"max_supply\": \"10000000000.0000000000000000\",\n            \"market_cap_usd\": \"695211950.6160285350114072\",\n            \"price\": \"Rp 1.679\",\n            \"rank\": \"74\",\n            \"symbol\": \"ROSE\"\n        },\n        {\n            \"id\": \"synthetix-network-token\",\n            \"name\": \"Synthetix\",\n            \"max_supply\": \"212424133.0000000000000000\",\n            \"market_cap_usd\": \"685450224.4979425621457603\",\n            \"price\": \"Rp 47.565\",\n            \"rank\": \"75\",\n            \"symbol\": \"SNX\"\n        },\n        {\n            \"id\": \"wemix\",\n            \"name\": \"WEMIX\",\n            \"max_supply\": \"980000000.0000000000000000\",\n            \"market_cap_usd\": \"657317375.7545212785472556\",\n            \"price\": \"Rp 29.913\",\n            \"rank\": \"76\",\n            \"symbol\": \"WEMIX\"\n        },\n        {\n            \"id\": \"wootrade\",\n            \"name\": \"WOO\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"632271810.2168708843872234\",\n            \"price\": \"Rp 5.529\",\n            \"rank\": \"77\",\n            \"symbol\": \"WOO\"\n        },\n        {\n            \"id\": \"ribbon-finance\",\n            \"name\": \"Ribbon Finance\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"615883225.2426578064513470\",\n            \"price\": \"Rp 18.597\",\n            \"rank\": \"78\",\n            \"symbol\": \"RBN\"\n        },\n        {\n            \"id\": \"helium\",\n            \"name\": \"Helium\",\n            \"max_supply\": \"223000000.0000000000000000\",\n            \"market_cap_usd\": \"609683656.4218093331425997\",\n            \"price\": \"Rp 61.464\",\n            \"rank\": \"79\",\n            \"symbol\": \"HNT\"\n        },\n        {\n            \"id\": \"iotex\",\n            \"name\": \"IoTeX\",\n            \"max_supply\": \"10000000000.0000000000000000\",\n            \"market_cap_usd\": \"596237641.0407793259780620\",\n            \"price\": \"Rp 1.024\",\n            \"rank\": \"80\",\n            \"symbol\": \"IOTX\"\n        },\n        {\n            \"id\": \"ocean-protocol\",\n            \"name\": \"Ocean Protocol\",\n            \"max_supply\": \"1410000000.0000000000000000\",\n            \"market_cap_usd\": \"579526266.8039388938478163\",\n            \"price\": \"Rp 16.536\",\n            \"rank\": \"81\",\n            \"symbol\": \"OCEAN\"\n        },\n        {\n            \"id\": \"curve-dao-token\",\n            \"name\": \"Curve DAO Token\",\n            \"max_supply\": \"3303030299.0000000000000000\",\n            \"market_cap_usd\": \"537262962.3757785189871690\",\n            \"price\": \"Rp 7.337\",\n            \"rank\": \"82\",\n            \"symbol\": \"CRV\"\n        },\n        {\n            \"id\": \"skale-network\",\n            \"name\": \"SKALE\",\n            \"max_supply\": \"7000000000.0000000000000000\",\n            \"market_cap_usd\": \"525442643.4764646465699261\",\n            \"price\": \"Rp 1.596\",\n            \"rank\": \"83\",\n            \"symbol\": \"SKL\"\n        },\n        {\n            \"id\": \"trueusd\",\n            \"name\": \"TrueUSD\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"510322384.7029388759999966\",\n            \"price\": \"Rp 16.238\",\n            \"rank\": \"84\",\n            \"symbol\": \"TUSD\"\n        },\n        {\n            \"id\": \"ankr\",\n            \"name\": \"Ankr\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"508534163.5619370000000000\",\n            \"price\": \"Rp 824\",\n            \"rank\": \"85\",\n            \"symbol\": \"ANKR\"\n        },\n        {\n            \"id\": \"1inch\",\n            \"name\": \"1inch Network\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"506877050.3391541141109814\",\n            \"price\": \"Rp 7.104\",\n            \"rank\": \"86\",\n            \"symbol\": \"1INCH\"\n        },\n        {\n            \"id\": \"dexe\",\n            \"name\": \"DeXe\",\n            \"max_supply\": \"98942301.0000000000000000\",\n            \"market_cap_usd\": \"494590776.7530750587830112\",\n            \"price\": \"Rp 219.766\",\n            \"rank\": \"87\",\n            \"symbol\": \"DEXE\"\n        },\n        {\n            \"id\": \"superfarm\",\n            \"name\": \"SuperVerse\",\n            \"max_supply\": \"1000000000.0000000000000000\",\n            \"market_cap_usd\": \"489281526.8523792947525153\",\n            \"price\": \"Rp 16.268\",\n            \"rank\": \"88\",\n            \"symbol\": \"SUPER\"\n        },\n        {\n            \"id\": \"rocket-pool\",\n            \"name\": \"Rocket Pool\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"471186981.0976192871071679\",\n            \"price\": \"Rp 376.578\",\n            \"rank\": \"89\",\n            \"symbol\": \"RPL\"\n        },\n        {\n            \"id\": \"ftx-token\",\n            \"name\": \"FTX Token\",\n            \"max_supply\": \"352170015.0000000000000000\",\n            \"market_cap_usd\": \"469097401.1694703152063294\",\n            \"price\": \"Rp 23.132\",\n            \"rank\": \"90\",\n            \"symbol\": \"FTT\"\n        },\n        {\n            \"id\": \"enjin-coin\",\n            \"name\": \"Enjin Coin\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"467254507.4416667376000870\",\n            \"price\": \"Rp 5.492\",\n            \"rank\": \"91\",\n            \"symbol\": \"ENJ\"\n        },\n        {\n            \"id\": \"compound\",\n            \"name\": \"Compound\",\n            \"max_supply\": \"10000000.0000000000000000\",\n            \"market_cap_usd\": \"466107839.9063943061029366\",\n            \"price\": \"Rp 931.990\",\n            \"rank\": \"92\",\n            \"symbol\": \"COMP\"\n        },\n        {\n            \"id\": \"ravencoin\",\n            \"name\": \"Ravencoin\",\n            \"max_supply\": \"21000000000.0000000000000000\",\n            \"market_cap_usd\": \"463535444.3186358140843704\",\n            \"price\": \"Rp 546\",\n            \"rank\": \"93\",\n            \"symbol\": \"RVN\"\n        },\n        {\n            \"id\": \"livepeer\",\n            \"name\": \"Livepeer\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"460286417.0903180653617251\",\n            \"price\": \"Rp 234.620\",\n            \"rank\": \"94\",\n            \"symbol\": \"LPT\"\n        },\n        {\n            \"id\": \"trust-wallet-token\",\n            \"name\": \"Trust Wallet Token\",\n            \"max_supply\": \"1000000000.0000000000000000\",\n            \"market_cap_usd\": \"459824342.6846609698194900\",\n            \"price\": \"Rp 17.899\",\n            \"rank\": \"95\",\n            \"symbol\": \"TWT\"\n        },\n        {\n            \"id\": \"xinfin-network\",\n            \"name\": \"XinFin Network\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"459067373.7853469713263849\",\n            \"price\": \"Rp 605\",\n            \"rank\": \"96\",\n            \"symbol\": \"XDC\"\n        },\n        {\n            \"id\": \"celo\",\n            \"name\": \"Celo\",\n            \"max_supply\": \"1000000000.0000000000000000\",\n            \"market_cap_usd\": \"458349946.5651177404364471\",\n            \"price\": \"Rp 13.925\",\n            \"rank\": \"97\",\n            \"symbol\": \"CELO\"\n        },\n        {\n            \"id\": \"holo\",\n            \"name\": \"Holo\",\n            \"max_supply\": \"\",\n            \"market_cap_usd\": \"455784423.2454066099525188\",\n            \"price\": \"Rp 42\",\n            \"rank\": \"98\",\n            \"symbol\": \"HOT\"\n        },\n        {\n            \"id\": \"zilliqa\",\n            \"name\": \"Zilliqa\",\n            \"max_supply\": \"21000000000.0000000000000000\",\n            \"market_cap_usd\": \"454571717.5562890438467246\",\n            \"price\": \"Rp 424\",\n            \"rank\": \"99\",\n            \"symbol\": \"ZIL\"\n        },\n        {\n            \"id\": \"0x\",\n            \"name\": \"0x Protocol\",\n            \"max_supply\": \"1000000000.0000000000000000\",\n            \"market_cap_usd\": \"447244078.7767502540460517\",\n            \"price\": \"Rp 8.558\",\n            \"rank\": \"100\",\n            \"symbol\": \"ZRX\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Coin Tracker",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Bitcoin\",\n    \"rank\": \"1\",\n    \"symbol\": \"BTC\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/coin-tracker",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"coin-tracker"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Coin Tracker",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Ethereum\",\n    \"rank\": \"2\",\n    \"symbol\": \"ETH\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/user/coin-tracker",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"coin-tracker"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Apr 2024 15:18:04 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Successfully create coin tracker\",\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Coin Tracker User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/coin-tracker?limit=2&page=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"coin-tracker"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "id",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Coin Tracker User",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/user/coin-tracker?limit=2&page=1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"coin-tracker"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "2"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "id",
+											"value": "2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Apr 2024 14:41:35 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "278"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Successfully get list coin tracker user\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"user_id\": 1,\n            \"name\": \"Bitcoin\",\n            \"rank\": \"1\",\n            \"symbol\": \"BTC\",\n            \"created_at\": \"2024-04-25T13:50:09Z\"\n        },\n        {\n            \"id\": 2,\n            \"user_id\": 1,\n            \"name\": \"Ethereum\",\n            \"rank\": \"2\",\n            \"symbol\": \"ETH\",\n            \"created_at\": \"2024-04-25T13:51:03Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Coin Tracker",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/coin-tracker/:id",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"coin-tracker",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Coin Tracker",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/user/coin-tracker/:id",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"coin-tracker",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Apr 2024 15:18:09 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Successfully delete coin tracker\",\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
