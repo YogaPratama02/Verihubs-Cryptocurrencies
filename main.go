@@ -17,6 +17,7 @@ func main() {
 	}
 
 	db := database.ConnectDB()
+	defer db.Close()
 
 	router := router.NewRoutes(db)
 	router.LoadHandlers()
